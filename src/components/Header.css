@@ -1,0 +1,43 @@
+.lirium-header{
+    flex-direction: column;
+}
+
+.main-header{
+    background-color: #F0EFEC;
+    color: #3A5A40;
+
+    height: 50px;
+    width: 100vw;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 40px 30px;
+    border-bottom: 10px solid #F0EFEC;
+
+}
+
+.dashboard{
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    gap: 60px;
+}
+
+.navbar-item{
+    transition: 0.2s;
+}
+
+.navbar-item:hover{
+    text-decoration: underline;
+}
