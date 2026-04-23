@@ -1,0 +1,111 @@
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+}
+.carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  height: 100%;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  border: 1px solid rgba(198, 169, 105, 0.35);
+
+  background: rgba(240, 239, 236, 0.65);
+  backdrop-filter: blur(8px);
+
+  z-index: 10;
+
+
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+
+/* posicionamento */
+.carousel-btn.prev {
+  left: 20px;
+}
+
+.carousel-btn.next {
+  right: 20px;
+}
+
+/* ícone */
+.carousel-btn svg,
+.carousel-btn span {
+  color: #3A5A40;
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+/* hover elegante */
+.carousel-btn:hover {
+  background: rgba(198, 169, 105, 0.18);
+  border-color: #C6A969;
+
+  /* ❌ não mexe no translateY aqui */
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* efeito no ícone */
+.carousel-btn:hover svg,
+.carousel-btn:hover span {
+  color: #C6A969;
+}
+
+/* efeito de clique */
+.carousel-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-track {
+  height: 100%;
+}
+
+/* bolinhas */
+.carousel-dots {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #C6A969;
+  transform: scale(1.2);
+}

@@ -1,30 +1,53 @@
 .lirium-card {
-  background-color: #1e293b;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid #334155;
-  transition: 0.3s;
+  background-color: #f7e0e3; /* rosa claro */
+  border-radius: 15px;
+  width: 200px;
+  padding: 12px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+
+  font-family: 'Arial', sans-serif;
 }
 
 .lirium-card:hover {
   transform: translateY(-5px);
-  border-color: #7c3aed;
+  scale: 1.05;
 }
 
-.card-img { width: 100%; height: 140px; object-fit: cover; }
+.card-img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 8px;
+}
 
-.card-info { padding: 15px; }
+.card-info {
+  width: 100%;
+  text-align: left;
+  padding: 0 10px;
+}
 
 .buy-btn {
+  background-color: #d78894; /* tom rosa mais forte */
   width: 100%;
-  padding: 10px;
-  background: #7c3aed;
-  color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
+  padding: 10px 0;
+
   cursor: pointer;
+
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 8px;
+  align-items: center;
+
+  transition: background-color 0.3s ease;
+}
+
+.buy-btn:hover {
+  background-color: #c46c78;
 }

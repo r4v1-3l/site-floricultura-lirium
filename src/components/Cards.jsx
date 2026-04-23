@@ -1,7 +1,7 @@
 import './Cards.css';
 import {Handbag} from 'lucide-react';
 
-export function Cards({title, price, image}){
+export function Cards({title, flowers, colors, price, image}){
     
     return(
         <div className="lirium-card">
@@ -9,9 +9,12 @@ export function Cards({title, price, image}){
 
             <div className="card-info">
                 <h4>{title}</h4>
+                <p>{Array.isArray(flowers) ? flowers.join(", ") : flowers}</p>
+                <p>{Array.isArray(colors) ? colors.join(", ") : colors}</p>
                 <h4>{price}</h4>
+
                 <br />
-                <button className="buy-btn"><Handbag size={14} fill='none' stroke='#3A5A40'/></button>
+                <button className="buy-btn"><Handbag size={14} fill='none' stroke='#F2D7D9'/></button>
             </div>
 
         </div>

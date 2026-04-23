@@ -1,61 +1,74 @@
 import './Header.css';
 
-import {MapPin} from 'lucide-react';
-import {Search} from 'lucide-react';
-import {User} from 'lucide-react';
-import {Handbag} from 'lucide-react';
+import { MapPin } from 'lucide-react';
+import { Search } from 'lucide-react';
+import { User } from 'lucide-react';
+import { Handbag } from 'lucide-react';
 
-export function Header(){
-    
-    return(
+import { Carousel } from './Carousel';
+
+export function Header({ search, setSearch, openSearch, setOpenSearch, activeTab, setActiveTab }) {
+
+    return (
 
         <header className="lirium-header">
-            
+
             <div className="main-header">
 
-                <div className="delivery-select">
+                <div className='left-header'>
+                    <div className="search-container">
 
-                    <MapPin size={20} fill='none' stroke='#3A5A40'/>
-                    <h4>Selecione o local da entrega</h4>
+                        <div className="icon-btn" onClick={() => setOpenSearch(!openSearch)}>
+                            <Search
+                                size={22}
+                                className="search-icon"
+                            />
+                        </div>
 
-                    <select name="locations" id="locations">
-                        <option value="cerquilho">CERQUILHO</option>
-                        <option value="tatui">TATUÍ</option>
-                        <option value="piracicaba">PIRACICABA</option>
-                    </select>
+                        <div className={`search-box ${openSearch ? "active" : ""}`}>
+                            <input type="text"
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                                placeholder="Pesquisar..." />
+                        </div>
 
+                    </div>
                 </div>
 
                 <div className="logo">
-
-                    <img src="../assets/img/logo.png" alt="lirium-logo" />
-                    <h4>CERQUILHO - TATUÍ - PIRACICABA</h4>
-
+                    <div className="logo-box highlight">
+                        <span className="logo-main">LIRIUM</span>
+                        <span className="logo-divider"></span>
+                        <span className="logo-sub">ARRANJOS FLORAIS</span>
+                    </div>
                 </div>
 
-                <div className="dashboard">
+                <div className="right-header">
+                    <div className="dashboard">
 
-                    <Search size={20} fill='none' stroke='#3A5A40'/>
-                    <User size={20} fill='none' stroke='#3A5A40'/>
-                    <Handbag size={20} fill='none' stroke='#3A5A40'/>
+                        <div className="icon-btn">
+                            <User size={22} fill='none' stroke='#3A5A40' className='' />
+                        </div>
+                        <div className="icon-btn">
+                            <Handbag size={22} fill='none' stroke='#3A5A40' />
+                        </div>
 
+                    </div>
                 </div>
 
             </div>
-
-            <hr />
 
             <div className="navbar">
                 <nav>
-                    <div className="navbar-item">Dia dos Namorados</div>
-                    <div className="navbar-item">Arranjos</div>
-                    <div className="navbar-item">Arranjos Especiais</div>
-                    <div className="navbar-item">Cartões</div>
-                    <div className='navbar-item'>Doces</div>
-                    <div className="navbar-item">Ocasiões Especiais</div>
+                    <div className={`nav-item ${activeTab === 'currentEvent' ? 'active' : ''}`} onClick={() => setActiveTab('currentEvent')}>DIA DOS NAMORADOS</div>
+                    <div className={`nav-item ${activeTab === 'bouquets' ? 'active' : ''}`} onClick={() => setActiveTab('bouquets')}>ARRANJOS</div>
+                    <div className={`nav-item ${activeTab === 'extras' ? 'active' : ''}`} onClick={() => setActiveTab('extras')}>EXTRAS</div>
+                    <div className={`nav-item ${activeTab === 'combos' ? 'active' : ''}`} onClick={() => setActiveTab('combos')}>COMBOS</div>
+                    <div className={`nav-item ${activeTab === 'aboutUs' ? 'active' : ''}`} onClick={() => setActiveTab('aboutUs')}>SOBRE NÓS</div>
                 </nav>
             </div>
+
         </header>
-        
+
     )
 }
