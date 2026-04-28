@@ -17,23 +17,53 @@
   padding: 40px;
 }
 
-.lirium-grid{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  z-index: 90;
 
-  gap: 60px;
-  padding: 120px;
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* joga setas pra direita */
+  width: 100%;
+}
+
+/* Agrupa flor + título */
+.title-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Flor atrás */
+.flower-bg {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 0;
+  opacity: 0.4; /* opcional */
+}
+
+/* Título na frente */
+.section-title {
+  position: relative;
+  z-index: 1;
+  margin-left: 10px; /* espaço pra flor aparecer */
+}
+
+/* Setas no final */
+.arrows {
+  display: flex;
+  gap: 10px;
+}
+
+
+
+.lirium-grid{
+  z-index: 90;
+  margin-top: 50px;
 
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-}
-
-.section-title{
-  margin-bottom: 25px;
-  border-left: 4px solid red;
-  padding-left: 15px;  
+  gap: 120px;
 }
 
