@@ -47,7 +47,7 @@ export function Header({ search, setSearch, openSearch, setOpenSearch, activeTab
                     <div className="dashboard">
 
                         <div className="icon-btn">
-                            <User size={22} fill='none' stroke='#3A5A40' className='' />
+                            <User size={22} fill='none' stroke='#3A5A40' />
                         </div>
                         <div className="icon-btn">
                             <Handbag size={22} fill='none' stroke='#3A5A40' />

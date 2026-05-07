@@ -1,9 +1,7 @@
 .lirium-app{
-  /* background-color: #ffffff; */
-
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
 }
 
 .lirium-main{
@@ -11,59 +9,62 @@
   display: flex;
   flex-direction: column;
   padding-top: 150px;
+  width: 100%;
 }
 
 .lirium-content{
   padding: 40px;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
-
-
+/* HEADER */
 .section-header {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* joga setas pra direita */
+  justify-content: space-between;
   width: 100%;
 }
 
-/* Agrupa flor + título */
 .title-wrapper {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-/* Flor atrás */
 .flower-bg {
   position: absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
   z-index: 0;
-  opacity: 0.4; /* opcional */
+  opacity: 0.4;
 }
 
-/* Título na frente */
 .section-title {
   position: relative;
   z-index: 1;
-  margin-left: 10px; /* espaço pra flor aparecer */
+  margin-left: 10px;
 }
 
-/* Setas no final */
 .arrows {
   display: flex;
   gap: 10px;
 }
 
-
-
+/* GRID (agora só estrutura, sem grid real) */
 .lirium-grid{
-  z-index: 90;
   margin-top: 50px;
-
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 120px;
+  width: 100%;
 }
 
+/* CONTAINER DOS CARDS */
+.cards-container{
+  display: flex;
+  gap: 40px;
+  width: 100%;
+  align-items: stretch;
+  justify-content: center;
+
+}

@@ -1,22 +1,30 @@
 import './Cards.css';
-import {Handbag} from 'lucide-react';
+import { Handbag } from 'lucide-react';
 
-export function Cards({title, flowers, colors, price, image}){
-    
-    return(
-        <div className="lirium-card">
-            <img src={image} alt={title} className='card-img' />
+export function Cards({ title, about, flowers, colors, price, image, onAbout }) {
 
-            <div className="card-info">
-                <h4>{title}</h4>
-                <p>{Array.isArray(flowers) ? flowers.join(", ") : flowers}</p>
-                <p>{Array.isArray(colors) ? colors.join(", ") : colors}</p>
-                <h4>{price}</h4>
+  return (
+    <div className="lirium-card">
+      <img src={image} alt={title} className="card-img" />
 
-                <br />
-                <button className="buy-btn"><Handbag size={14} fill='none' stroke='#F2D7D9'/></button>
-            </div>
+      <div className="card-info">
+        <h4 className="card-title">{title}</h4>
 
+          <p className="card-extra">{about}</p>
+          <p className="card-flowers">
+            {Array.isArray(flowers) ? flowers.join(", ") : flowers}
+          </p>
+          <p className="card-colors">
+            {Array.isArray(colors) ? colors.join(", ") : colors}
+          </p>
         </div>
-    )
+
+        <div className="card-footer">
+          <h4 className="card-price">{price}</h4>
+          <button className="about-btn" onClick={onAbout}>
+            <p>Saiba Mais</p>
+          </button>
+        </div>
+      </div>
+  );
 }

@@ -4,6 +4,7 @@ import { Header } from './components/Header';
 import { Carousel } from './components/Carousel';
 import { Cards } from './components/Cards';
 import { flowersData } from './data/cards';
+import { CardsModal } from './components/CardsModal';
 
 import { useState } from 'react';
 
@@ -20,6 +21,7 @@ function App() {
   const [openSearch, setOpenSearch] = useState(false);
   const [search, setSearch] = useState('');
   const [activeTab, setActiveTab] = useState('currentEvent');
+  const [selectedCard, setSelectedCard] = useState(null);
 
   const filtredFlowers = flowersData.filter((flower) => {
     const matchesSearch =
@@ -35,6 +37,7 @@ function App() {
               true;
 
     return matchesSearch && matchesTab;
+
   });
 
   return (
@@ -78,15 +81,16 @@ function App() {
               {activeTab === 'aboutUs' && 'SOBRE NÓS'}
             </h2>
             </div>
-
+            
             <div className='arrows'>
-              <CircleArrowLeft size={28}/>
-              <CircleArrowRight size={28}/>
+              <CircleArrowLeft size={28} className="icon-btn" />
+              <CircleArrowRight size={28}className="icon-btn" />
             </div>
           </div>
 
           <div className="lirium-grid">
 
+            <div className="cards-container">
             {filtredFlowers.length > 0 ? (
               filtredFlowers.map((g) => (
                 <Cards
@@ -96,9 +100,10 @@ function App() {
                   colors={g.colors}
                   price={g.price}
                   image={g.image}
+
+                  onAbout={() => setSelectedCard(g)}
                 />
-              ))
-            ) : (
+              ))) : (
               <p>{activeTab === 'currentEvent' && 'Eventos recentes'}
                 {activeTab === 'bouquets' && 'Arranjos de flores'}
                 {activeTab === 'extras' && 'Arranjos extras'}
@@ -106,10 +111,17 @@ function App() {
                 {activeTab === 'aboutUs' && 'Sobre os desenvolvedores'}
               </p>
             )}
+            </div>
 
           </div>
         </div>
       </div>
+
+      <CardsModal
+        flower={selectedCard}
+        onClose={() => setSelectedCard(null)}
+      />  
+        
     </div>
   )
 }
