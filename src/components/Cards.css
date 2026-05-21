@@ -1,12 +1,13 @@
 .lirium-card {
+  font-family: 'Inter', sans-serif;
+  color: #55001a;
+
   background-color: #f7e0e3;
-  padding: 12px;
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.5),
-    0 10px 25px rgba(0,0,0,0.05);
+  padding: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
     
   width: 260px;
-  height: 380px;
+  height: 405px;
 
   display: flex;
   flex-direction: column;
@@ -19,7 +20,6 @@
         
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 
-  font-family: 'Arial', sans-serif;
 }
 
 .lirium-card:hover{
@@ -40,13 +40,25 @@
   transition: all 0.4s ease;
 }
 
+.card-flowers, .card-colors{
+  font-size: 14px;
+}
+
+.card-flowers, .card-colors, .card-price{
+  margin-top: 4px;
+}
+
 /* BOTÃO */
 .about-btn {
+  color: #ffffff;
+  font-weight: 600;
+
   background-color: #d78894;
   width: 100%;
   border: none;
   border-radius: 12px;
   padding: 10px 0;
+  margin-top: 9px;
 
   cursor: pointer;
 

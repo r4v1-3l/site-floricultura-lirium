@@ -1,5 +1,5 @@
 import "./CardsModal.css";
-import { X } from "lucide-react";
+import { X, Handbag } from "lucide-react";
 
 export function CardsModal({ flower, onClose}) {
     if (!flower) return null;
@@ -14,13 +14,15 @@ export function CardsModal({ flower, onClose}) {
                 <img src={flower.image} alt={flower.title} className="modal-banner" />
 
                 <div className="modal-body">
-                    <span className="modal-category">{flower.category}</span>
                     <h2>{flower.title}</h2>
+                    <span className="modal-category">{flower.category}</span>
                     <p className="description">
                         {flower.about}
                     </p>
 
-                    <button className="buy-btn">Adicionar ao Carrinho</button>
+                    <button className="buy-btn">Adicionar ao Carrinho
+                        <Handbag/>
+                    </button>
 
                 </div>
 

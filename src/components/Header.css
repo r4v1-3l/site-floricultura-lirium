@@ -4,7 +4,7 @@ body {
 
 .lirium-header{
     flex-direction: column;
-    height: 60px;
+    height: 3.75rem;
     width: 100%;
     position: fixed;
     z-index: 100;
@@ -14,14 +14,14 @@ body {
     background-color: #F0EFEC;
     color: #3A5A40;
 
-    height: 50px;
+    height: 3.125rem;
     width: 100vw;
 
     display: flex;
     align-items: center;
 
-    padding: 50px 30px;
-    border-bottom: 10px solid #F0EFEC;
+    padding: 3.125rem 1.875rem;
+    border-bottom: 0.625rem solid #F0EFEC;
 }
 
 .right-header,
@@ -29,9 +29,6 @@ body {
 .left-header {
   flex: 1;
 }
-
-
-
 
 
 
@@ -45,37 +42,37 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px 26px;
+  padding: 0.625rem 1.625rem;
   background-color: #F0EFEC;
-  border: 1px solid rgba(198, 169, 105, 0.6);
+  border: 0.0625rem solid rgba(198, 169, 105, 0.6);
   cursor: pointer;
   transition: all 0.35s ease;
 }
 
 .logo-box:hover {
-  transform: translateY(-2px);
+  transform: translateY(0.125rem);
 }
 
 .logo-main {
   font-family: 'Aboreto', cursive;
-  font-size: 26px; letter-spacing: 6px;
+  font-size: 1.625rem; letter-spacing: 0.375rem;
   color: #3A5A40; transition: all 0.35s ease;
 }
 
 .logo-divider {
   width: 45%;
-  height: 1px;
+  height: 0.0625rem;
   background: linear-gradient(90deg, #C6A969, #D88C9A);
-  margin: 6px 0; transition: all 0.4s ease; }
+  margin: 0.375rem 0; transition: all 0.4s ease; }
   
 .logo-sub {
-  font-size: 10px;
-  letter-spacing: 3px;
+  font-size: 0.625rem;
+  letter-spacing: 0.1875rem;
   color: #C6A969;
   transition: 0.3s; }
   
 .logo-box:hover .logo-main {
-  letter-spacing: 9px;
+  letter-spacing: 0.5625rem;
 }
 
 .logo-box:hover .logo-divider{
@@ -83,11 +80,9 @@ body {
 }
 
 .logo-box:hover .logo-sub {
-  letter-spacing: 4px;
+  letter-spacing: 0.25rem;
   opacity: 0.9;
 }
-
-
 
 
 
@@ -96,10 +91,8 @@ body {
   justify-content: flex-end;
   align-items: center;
 
-  gap: 35px;
+  gap: 2.1875rem;
 }
-
-
 
 
 
@@ -111,7 +104,7 @@ body {
 
 .search-box {
   position: absolute;
-  left: 45px;
+  left: 2.8125rem;
 
   width: 0;
   opacity: 0;
@@ -122,16 +115,16 @@ body {
 }
 
 .search-box.active {
-  width: 360px;
+  width: 37.5rem;
   opacity: 1;
 }
 
 .search-box input {
   width: 100%;
-  padding: 8px 12px;
+  padding: 0.5rem 0.75rem;
 
   border-radius: 20px;
-  border: 1px solid #ccc;
+  border: 0.0625rem solid #ccc;
 
   outline: none;
 
@@ -145,11 +138,9 @@ body {
 
 
 
-
-
 .icon-btn {
-  width: 32px;
-  height: 32px;
+  width: 2rem;
+  height: 2rem;
 
   display: flex;
   align-items: center;
@@ -183,11 +174,9 @@ body {
   background-color: rgba(198, 169, 105, 0.18);
 
   box-shadow: 
-    0 0 8px rgba(198, 169, 105, 0.5),
-    0 0 16px rgba(198, 169, 105, 0.25);
+    0 0 0.5rem rgba(198, 169, 105, 0.5),
+    0 0 1rem rgba(198, 169, 105, 0.25);
 }
-
-
 
 
 
@@ -198,14 +187,14 @@ nav{
     justify-content: center;
     align-items: center;
 
-    padding: 0px 20px 20px 20px;
-    gap: 20px;
+    padding: 0px 1.25rem 1.25rem 1.25rem;
+    gap: 1.25rem;
 }
 
 .nav-item{
     font-family: 'Aboreto', cursive;
     font-weight: 500;
-    font-size: 17px;
+    font-size: 1.0625rem;
 
     display: inline-block;
 
@@ -219,9 +208,9 @@ nav{
   content: "";
   position: absolute;
   left: 50%;
-  bottom: -4px;
+  bottom: -0.25rem;
   width: 100%;
-  height: 1.4px;
+  height: 0.0875rem;
   background: #d78894;;
 
   transform: translateX(-50%) scaleX(0);
