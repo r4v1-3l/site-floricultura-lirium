@@ -15,7 +15,7 @@ export function CardsModal({ flower, onClose}) {
 
                 <div className="modal-body">
                     <h2>{flower.title}</h2>
-                    <span className="modal-category">{flower.category}</span>
+                    <span className="modal-category">{flower.category}</span>git commit -m "Atualização"
                     <p className="description">
                         {flower.about}
                     </p>
