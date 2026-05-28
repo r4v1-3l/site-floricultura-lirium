@@ -3,8 +3,11 @@ import './App.css'
 import { Header } from './components/Header';
 import { Carousel } from './components/Carousel';
 import { Cards } from './components/Cards';
-import { flowersData } from './data/cards';
 import { CardsModal } from './components/CardsModal';
+import { Footer } from './components/Footer';
+
+import { flowersData } from './data/cards';
+import { footerData } from './data/footer';
 
 import { useState } from 'react';
 
@@ -68,6 +71,7 @@ function App() {
         
 
         <div className="lirium-content">
+
           <div className='section-header'>
 
             <div className='title-wrapper'>
@@ -80,12 +84,14 @@ function App() {
               {activeTab === 'combos' && 'COMBOS'}
               {activeTab === 'aboutUs' && 'SOBRE NÓS'}
             </h2>
+
             </div>
             
-            <div className='arrows'>
-              <CircleArrowLeft size={28} className="icon-btn" />
-              <CircleArrowRight size={28}className="icon-btn" />
-            </div>
+              <div className='arrows'>
+                <CircleArrowLeft size={28} className="icon-btn" />
+                <CircleArrowRight size={28}className="icon-btn" />
+              </div>
+
           </div>
 
           <div className="lirium-grid">
@@ -104,13 +110,18 @@ function App() {
                   onAbout={() => setSelectedCard(g)}
                 />
               ))) : (
-              <p>{activeTab === 'currentEvent' && 'Eventos recentes'}
+              <p>
+                {activeTab === 'currentEvent' && 'Eventos recentes'}
                 {activeTab === 'bouquets' && 'Arranjos de flores'}
                 {activeTab === 'extras' && 'Arranjos extras'}
                 {activeTab === 'combos' && 'Combos'}
                 {activeTab === 'aboutUs' && 'Sobre os desenvolvedores'}
               </p>
             )}
+            </div>
+
+            <div className="footer-container">
+
             </div>
 
           </div>
@@ -122,6 +133,17 @@ function App() {
         onClose={() => setSelectedCard(null)}
       />  
         
+        {footerData.map((g) => (
+
+              <Footer
+                key={g.id}
+                title={g.title}
+                text={g.text}
+                activeTab={activeTab}
+                setActiveTab={setActiveTab}
+              />
+              ))}
+
     </div>
   )
 }

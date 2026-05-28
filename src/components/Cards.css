@@ -44,8 +44,12 @@
   font-size: 14px;
 }
 
-.card-flowers, .card-colors, .card-price{
+.card-flowers, .card-colors{
   margin-top: 4px;
+}
+
+.card-price{
+  margin-top: 8px;
 }
 
 /* BOTÃO */
