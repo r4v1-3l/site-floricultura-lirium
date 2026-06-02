@@ -7,6 +7,10 @@ export function Cards({ title, about, flowers, colors, price, image, onAbout }) 
     <div className="lirium-card">
       <img src={image} alt={title} className="card-img" />
 
+      <button className={`favorite-btn ${isFavorite ? "active" : ''}`} onClick={onFavorite}>
+        <Heart size={14}fill={isFavorite ? "#7c3aed" : "transparent"} stroke={isFavorite ? "#7c3aed" : "white"}/>
+      </button>
+
       <div className="card-info">
         <h4 className="card-title">{title}</h4>
 
