@@ -43,7 +43,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 0.625rem 1.625rem;
-  background-color: #F0EFEC;
+  background-color: #F3F3F3;
   border: 0.0625rem solid rgba(198, 169, 105, 0.6);
   cursor: pointer;
   transition: all 0.35s ease;

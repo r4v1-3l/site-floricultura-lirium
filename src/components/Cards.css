@@ -1,13 +1,13 @@
 .lirium-card {
-  font-family: 'Inter', sans-serif;
-  color: #55001a;
+  font-family: 'Manrope', sans-serif;
+  color: #55001A;
 
   background-color: #f7e0e3;
   padding: 0.75rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
     
   width: 260px;
-  height: 405px;
+  height: 420px;
 
   display: flex;
   flex-direction: column;
@@ -40,6 +40,10 @@
   transition: all 0.4s ease;
 }
 
+.card-title{
+  font-size: 17px;
+}
+
 .card-flowers, .card-colors{
   font-size: 14px;
 }
@@ -51,6 +55,30 @@
 .card-price{
   margin-top: 8px;
 }
+
+.favorite-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #d78894;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #94a3b8;
+  transition: 0.3s;
+}
+
+.favorite-btn.active {
+  color: #55001A;
+  background: #d7889483;
+}
+
+.favorite-btn:hover { transform: scale(1.1); }
 
 /* BOTÃO */
 .about-btn {

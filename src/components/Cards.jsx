@@ -1,18 +1,21 @@
 import './Cards.css';
-import { Handbag } from 'lucide-react';
+import { Heart, Handbag } from 'lucide-react';
 
-export function Cards({ title, about, flowers, colors, price, image, onAbout }) {
+export function Cards({ title, about, flowers, colors, price, image, index, isFavorite, onFavorite, onAbout }) {
 
   return (
-    <div className="lirium-card">
-      <img src={image} alt={title} className="card-img" />
-
-      <button className={`favorite-btn ${isFavorite ? "active" : ''}`} onClick={onFavorite}>
-        <Heart size={14}fill={isFavorite ? "#7c3aed" : "transparent"} stroke={isFavorite ? "#7c3aed" : "white"}/>
-      </button>
+    <div className="lirium-card"
+      data-aos="fade-up"
+      data-aos-delay={index * 30}>
+          <div className="card-image-wrapper">
+            <img src={image} alt={title} className="card-img" />
+              <button className={`favorite-btn ${isFavorite ? "active" : ""}`} onClick={onFavorite}>
+                <Heart size={14} fill={isFavorite ? "#55001A" : "transparent"} stroke={isFavorite ? "#55001A" : "white"}/>
+              </button>
+          </div>
 
       <div className="card-info">
-        <h4 className="card-title">{title}</h4>
+        <strong><p className="card-title">{title}</p></strong>
 
           <p className="card-extra">{about}</p>
           <p className="card-flowers">
@@ -24,7 +27,7 @@ export function Cards({ title, about, flowers, colors, price, image, onAbout }) 
         </div>
 
         <div className="card-footer">
-          <h4 className="card-price">{price}</h4>
+          <strong><p className="card-price">{price}</p></strong>
           <button className="about-btn" onClick={onAbout}>
             <p>Saiba Mais</p>
           </button>

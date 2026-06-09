@@ -1,9 +1,7 @@
 import './Header.css';
 
-import { MapPin } from 'lucide-react';
-import { Search } from 'lucide-react';
-import { User } from 'lucide-react';
-import { Handbag } from 'lucide-react';
+import { Search, Heart, Handbag, User} from 'lucide-react';
+
 
 import { Carousel } from './Carousel';
 
@@ -46,11 +44,14 @@ export function Header({ search, setSearch, openSearch, setOpenSearch, activeTab
                 <div className="right-header">
                     <div className="dashboard">
 
-                        <div className="icon-btn">
-                            <User size={22} fill='none' stroke='#3A5A40' />
+                        <div className={`icon-btn ${activeTab === 'favorites' ? 'active' : ''}`} onClick={() => setActiveTab('favorites')}>
+                            <Heart size={22} fill='none' stroke='#3A5A40' />
                         </div>
                         <div className="icon-btn">
                             <Handbag size={22} fill='none' stroke='#3A5A40' />
+                        </div>
+                        <div className="icon-btn">
+                            <User size={22} fill='none' stroke='#3A5A40' />
                         </div>
 
                     </div>

@@ -1,0 +1,15 @@
+.Toastify__toast {
+  background: #FFFFFF;
+  color: #3A5A40;
+  border-radius: 12px;
+}
+
+
+
+.Toastify__progress-bar {
+  background: linear-gradient(
+    90deg,
+    #A3B18A,
+    #588157
+  );
+}

@@ -1,68 +1,58 @@
 .lirium-footer{
     width: 100%;
-    background-color: #f3f3f3;
+    background-color: #F3F3F3;
 
     margin-top: 80px;
-
-    padding: 70px 60px 30px;
+    padding: 70px 60px 20px;
+    gap: 20px;
 
     display: flex;
     flex-direction: column;
-
-    gap: 50px;
 }
 
-/* CONTAINER SUPERIOR */
-
+/* container-superior */
 .footer-top{
     width: 100%;
 
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-
-    gap: 100px;
 }
 
-/* BLOCO ESQUERDO */
-
+/* bloco-direito */
 .main-footer{
     flex: 1;
 
     max-width: 700px;
+    gap: 30px;
 
     display: flex;
     flex-direction: column;
-
-    gap: 30px;
 }
 
 .footer-title h3{
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     font-weight: 700;
 
     color: #2b2b2b;
-
     text-transform: uppercase;
 }
 
 .footer-text p{
-    font-size: 1rem;
-
+    font-family: Manrope;
+    font-size: 0.9rem;
+    text-align: justify;
+    word-spacing: 0.14rem;
     line-height: 2rem;
-
     color: #555;
 }
 
-/* BLOCO DIREITO */
-
+/*bloco-direito*/
 .side-footer{
     display: flex;
     align-items: flex-start;
-
-    gap: 70px;
-
     flex-shrink: 0;
+    gap: 70px;
 }
 
 /* NAVBAR */
@@ -162,17 +152,14 @@
 
 .bottom-footer{
     width: 100%;
-
     border-top: 1px solid #d3d3d3;
-
-    padding-top: 25px;
+    padding-top: 20px;
 }
 
 .bottom-footer p{
     text-align: center;
-
-    font-size: 0.95rem;
-
+    font-family: Manrope;
+    font-size: 0.80rem;
     color: #666;
 }
 

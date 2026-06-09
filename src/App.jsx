@@ -5,11 +5,8 @@ import { Carousel } from './components/Carousel';
 import { Cards } from './components/Cards';
 import { CardsModal } from './components/CardsModal';
 import { Footer } from './components/Footer';
-
 import { flowersData } from './data/cards';
 import { footerData } from './data/footer';
-
-import { useState } from 'react';
 
 import { Flower, CircleArrowLeft,CircleArrowRight } from 'lucide-react';
 
@@ -20,11 +17,28 @@ import diaDosNamorados_banner4 from './assets/img/diaDosNamorados-banner4.jpg';
 import diaDosNamorados_banner5 from './assets/img/diaDosNamorados-banner5.jpg';
 import diaDosNamorados_banner6 from './assets/img/diaDosNamorados-banner6.jpg';
 
+//
+
+import { useState, useEffect } from 'react';
+
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+import "./components/ToastifyCustom.css";
+
+
+
 function App() {
+
   const [openSearch, setOpenSearch] = useState(false);
   const [search, setSearch] = useState('');
   const [activeTab, setActiveTab] = useState('currentEvent');
   const [selectedCard, setSelectedCard] = useState(null);
+  const [favorites, setFavorites] = useState([]);
+
+  //
 
   const filtredFlowers = flowersData.filter((flower) => {
     const matchesSearch =
@@ -32,16 +46,61 @@ function App() {
       flower.flowers.some(f => f.toLowerCase().includes(search.toLowerCase())) ||
       flower.colors.some(f => f.toLowerCase().includes(search.toLowerCase()));
 
+      //
+
+    const [selectedFlower, setSelectedFlower] = useState(null);
+
+    useEffect(() => {
+      AOS.init({
+        duration: 700,
+        once: true,
+        easing: "ease-in-out",
+      })
+    }, []);
+
+    const sliderSettings = {
+      slidesPerView: 1,
+    };
+
+    //
+
     const matchesTab =
       activeTab === 'currentEvent' ? flower.category === 'event' :
         activeTab === 'bouquets' ? flower.category === 'bouquet' :
           activeTab === 'extras' ? flower.category === 'extra' :
             activeTab === 'combos' ? flower.category === 'combo' :
-              true;
+              activeTab === "favorites" ? favorites.includes(flower.id) :
+            true;
 
     return matchesSearch && matchesTab;
 
   });
+
+  const toggleFavorite = (id) => {
+
+      const flower = flowersData.find((g) => g.id === id);
+      const flowerTitle = flower ? flower.title: "Produto";
+
+      const isFavorite = favorites.includes(id);
+
+      if(isFavorite){
+        toast.info(
+          <span>
+            <b>{flowerTitle}</b> removido dos favoritos
+          </span>,
+          {theme: "",});
+      }else {
+        toast.success(
+          <span>
+            <b>{flowerTitle}</b> adicionado aos favoritos
+          </span>,
+        {theme: "",});
+      }
+
+      setFavorites((prev) => prev.includes(id) ? prev.filter((favId) => favId !== id) : [...prev, id])
+    }
+
+  //
 
   return (
     <div className="lirium-app">
@@ -83,6 +142,7 @@ function App() {
               {activeTab === 'extras' && 'EXTRAS'}
               {activeTab === 'combos' && 'COMBOS'}
               {activeTab === 'aboutUs' && 'SOBRE NÓS'}
+              {activeTab === "favorites" && "FAVORITOS"}
             </h2>
 
             </div>
@@ -106,6 +166,8 @@ function App() {
                   colors={g.colors}
                   price={g.price}
                   image={g.image}
+                  isFavorite={favorites.includes(g.id)}
+                  onFavorite={() => toggleFavorite(g.id)}
 
                   onAbout={() => setSelectedCard(g)}
                 />
@@ -131,7 +193,15 @@ function App() {
       <CardsModal
         flower={selectedCard}
         onClose={() => setSelectedCard(null)}
-      />  
+      /> 
+      <ToastContainer
+        position="bottom-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        onClick={() => setActiveTab('favorites')}
+        pauseOnHover
+        draggable
+      />
         
         {footerData.map((g) => (
 
