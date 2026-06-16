@@ -1,13 +1,14 @@
 .lirium-footer{
     width: 100%;
-    background-color: #F3F3F3;
-
-    margin-top: 80px;
-    padding: 70px 60px 20px;
-    gap: 20px;
-
+    background-color: #F0EFEC;
     display: flex;
     flex-direction: column;
+
+    margin-top: 64px;
+    padding: 56px 48px 16px;
+    gap: 16px;
+
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
 }
 
 /* container-superior */
@@ -24,14 +25,14 @@
     flex: 1;
 
     max-width: 700px;
-    gap: 30px;
+    gap: 24px;
 
     display: flex;
     flex-direction: column;
 }
 
 .footer-title h3{
-    font-size: 1.4rem;
+    font-size: 1.12rem;
     font-weight: 700;
 
     color: #2b2b2b;
@@ -40,10 +41,10 @@
 
 .footer-text p{
     font-family: Manrope;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     text-align: justify;
-    word-spacing: 0.14rem;
-    line-height: 2rem;
+    word-spacing: 0.11rem;
+    line-height: 1.6rem;
     color: #555;
 }
 
@@ -52,7 +53,7 @@
     display: flex;
     align-items: flex-start;
     flex-shrink: 0;
-    gap: 70px;
+    gap: 56px;
 }
 
 /* NAVBAR */
@@ -61,45 +62,60 @@
     display: flex;
     flex-direction: column;
 
-    gap: 14px;
+    gap: 11px;
 
-    padding: 0px 60px;
+    padding: 0px 48px;
 
     border-left: 1px solid #9f9f9f;
     border-right: 1px solid #9f9f9f;
 }
 
 .footer-navbar h4{
-    font-size: 1.05rem;
+    font-size: 0.9rem;
     font-weight: 700;
 
     color: #2b2b2b;
 
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .footer-navbar .nav-item{
     width: fit-content;
+    display: inline-block;
+    position: relative;
 
-    font-size: 0.95rem;
-
+    font-size: 0.8rem;
     color: #555;
 
     cursor: pointer;
-
-    transition: 0.3s;
+    transition: 0.2s;
 }
 
-.footer-navbar .nav-item:hover{
-    color: #000;
+.footer-navbar .nav-item::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -0.25rem;
+    width: 100%;
+    height: 0.0875rem;
+    background: #d78894;
 
-    transform: translateX(4px);
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
 }
 
-.footer-navbar .nav-item.active{
-    color: #000;
+.footer-navbar .nav-item:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
 
-    font-weight: 700;
+.footer-navbar .nav-item.active {
+    color: #d78894;
+    transform: scale(1.05);
+}
+
+.footer-navbar .nav-item.active::after {
+    transform: translateX(-50%) scaleX(1);
 }
 
 /* DEVELOPERS */
@@ -108,18 +124,18 @@
     display: flex;
     flex-direction: column;
 
-    gap: 40px;
+    gap: 32px;
 }
 
 .developer{
     display: flex;
     flex-direction: column;
 
-    gap: 10px;
+    gap: 8px;
 }
 
 .developer h5{
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 700;
 
     color: #2b2b2b;
@@ -127,11 +143,16 @@
     text-transform: uppercase;
 }
 
+.developer .contacts{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
 .developer a{
     display: flex;
     align-items: center;
 
-    gap: 8px;
+    gap: 12px;
 
     width: fit-content;
 
@@ -153,13 +174,13 @@
 .bottom-footer{
     width: 100%;
     border-top: 1px solid #d3d3d3;
-    padding-top: 20px;
+    padding-top: 16px;
 }
 
 .bottom-footer p{
     text-align: center;
     font-family: Manrope;
-    font-size: 0.80rem;
+    font-size: 0.64rem;
     color: #666;
 }
 
@@ -170,7 +191,7 @@
     .footer-top{
         flex-direction: column;
 
-        gap: 50px;
+        gap: 40px;
     }
 
     .main-footer{
@@ -183,7 +204,7 @@
     .side-footer{
         flex-direction: column;
 
-        gap: 45px;
+        gap: 36px;
     }
 
     .footer-navbar{
@@ -193,10 +214,10 @@
         border-bottom: 1px solid #9f9f9f;
 
         padding-right: 0;
-        padding-bottom: 30px;
+        padding-bottom: 24px;
     }
 
     .lirium-footer{
-        padding: 50px 30px;
+        padding: 40px 24px;
     }
 }

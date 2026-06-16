@@ -61,10 +61,12 @@
 
 /* CONTAINER DOS CARDS */
 .cards-container{
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   gap: 40px;
   width: 100%;
-  align-items: stretch;
-  justify-content: center;
+}
 
+.second-section{
+    margin-top: 60px;
 }

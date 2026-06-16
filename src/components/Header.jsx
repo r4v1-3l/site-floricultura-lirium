@@ -45,13 +45,13 @@ export function Header({ search, setSearch, openSearch, setOpenSearch, activeTab
                     <div className="dashboard">
 
                         <div className={`icon-btn ${activeTab === 'favorites' ? 'active' : ''}`} onClick={() => setActiveTab('favorites')}>
-                            <Heart size={22} fill='none' stroke='#3A5A40' />
+                            <Heart size={activeTab === "favorites" ? 28 : 22} fill={activeTab === "favorites" ? "#3A5A40" : "none"} stroke='#3A5A40' />
                         </div>
-                        <div className="icon-btn">
-                            <Handbag size={22} fill='none' stroke='#3A5A40' />
+                        <div className={`icon-btn ${activeTab === 'cart' ? 'active' : ''}`} onClick={() => setActiveTab('cart')}>
+                            <Handbag size={activeTab === "cart" ? 28 : 22} fill={activeTab === "cart" ? "#3A5A40" : "none"} stroke='#3A5A40' />
                         </div>
-                        <div className="icon-btn">
-                            <User size={22} fill='none' stroke='#3A5A40' />
+                        <div className={`icon-btn ${activeTab === 'profile' ? 'active' : ''}`} onClick={() => setActiveTab('profile')}>
+                            <User size={activeTab === "profile" ? 28 : 22} fill={activeTab === "profile" ? "#3A5A40" : "none"} stroke='#3A5A40' />
                         </div>
 
                     </div>

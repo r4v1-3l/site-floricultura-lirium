@@ -1,0 +1,32 @@
+.card-rating{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.star-wrapper{
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+
+.star-empty{
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #FFD700;
+}
+
+.star-fill{
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.card-rating span{
+  margin-left: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}

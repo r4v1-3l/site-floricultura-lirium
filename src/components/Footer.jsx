@@ -1,6 +1,7 @@
 import './Footer.css';
 
 import { Link } from 'lucide-react';
+import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 
 export function Footer({ title, text, activeTab, setActiveTab }) {
     return (
@@ -70,20 +71,20 @@ export function Footer({ title, text, activeTab, setActiveTab }) {
 
                 <div className="developer">
                     <h5>Ravi</h5>
-
-                    <a href="#">
-                        <Link />
-                        ravi.com
-                    </a>
+                        <div className="contacts">
+                            <a href="#"><FaLinkedin/></a>
+                            <a href="#"><FaGithub/></a>
+                            <a href="#"><FaInstagram/></a>
+                        </div>
                 </div>
 
                 <div className="developer">
                     <h5>Rafa</h5>
-
-                    <a href="#">
-                        <Link />
-                        rafa.com
-                    </a>
+                        <div className="contacts">
+                            <a href="#"><FaLinkedin/></a>
+                            <a href="#"><FaGithub/></a>
+                            <a href="#"><FaInstagram/></a>
+                        </div>
                 </div>
 
             </div>
