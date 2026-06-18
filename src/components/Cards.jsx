@@ -1,7 +1,12 @@
 import './Cards.css';
-import { Heart, Handbag } from 'lucide-react';
+import { Heart, ChevronLeft, ChevronRight, Handbag } from 'lucide-react';
+
+import { useRef } from "react";
 
 export function Cards({ title, about, flowers, colors, price, image, index, isFavorite, onFavorite, onAbout }) {
+
+  const flowersRef = useRef(null);
+  const colorsRef = useRef(null);
 
   return (
     <div className="lirium-card"
@@ -18,12 +23,37 @@ export function Cards({ title, about, flowers, colors, price, image, index, isFa
         <strong><p className="card-title">{title}</p></strong>
 
           <p className="card-extra">{about}</p>
-          <p className="card-flowers">
-            {Array.isArray(flowers) ? flowers.join(", ") : flowers}
-          </p>
-          <p className="card-colors">
-            {Array.isArray(colors) ? colors.join(", ") : colors}
-          </p>
+
+          <div className="items-wrapper">
+
+            <button className="scroll-btn" onClick={() => flowersRef.current.scrollBy({ left: -150, behavior: "smooth" })}><ChevronLeft size={14}/></button>
+
+              <div className="card-flowers"  ref={flowersRef}>
+                {flowers?.map((flower) => (
+                  <div key={flower} className="card-flower">
+                    {flower}
+                  </div>
+                ))}
+              </div>
+
+            <button className="scroll-btn" onClick={() => flowersRef.current.scrollBy({ left: 150, behavior: "smooth" })}><ChevronRight size={14}/></button>
+
+          </div>
+          <div className="items-wrapper">
+
+           <button className="scroll-btn" onClick={() => colorsRef.current.scrollBy({ left: -150, behavior: "smooth" })}><ChevronLeft size={14}/></button>
+
+            <div className="card-colors" ref={colorsRef}>
+              {colors?.map((color) => (
+                  <div key={color} className="card-flower">
+                    {color}
+                  </div>
+                ))}
+            </div>
+
+            <button className="scroll-btn" onClick={() => colorsRef.current.scrollBy({ left: 150, behavior: "smooth" })}><ChevronRight size={14}/></button>
+
+          </div>
         </div>
 
         <div className="card-footer">

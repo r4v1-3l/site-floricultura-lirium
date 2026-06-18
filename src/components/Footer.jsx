@@ -49,12 +49,12 @@ export function Footer({ title, text, activeTab, setActiveTab }) {
                     EXTRAS
                 </p>
 
-                <p
+                {/* <p
                     className={`nav-item ${activeTab === 'combos' ? 'active' : ''}`}
                     onClick={() => setActiveTab('combos')}
                 >
                     COMBOS
-                </p>
+                </p> */}
 
                 <p
                     className={`nav-item ${activeTab === 'aboutUs' ? 'active' : ''}`}

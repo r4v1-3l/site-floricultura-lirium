@@ -27,6 +27,31 @@
     gap: 20px;
 }
 
+.cart-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 80px;
+
+  text-align: center;
+}
+
+.cart-empty h3 {
+  margin-bottom: 8px;
+  font-family: Manrope;
+  color: #55001A;
+}
+
+.cart-empty p {
+  font-family: Manrope;
+  font-weight: 500;
+  font-size: 0.75rem;
+  color: #55001A;
+  max-width: 250px;
+}
+
 .cart-summary-items{
     display: flex;
     flex-direction: column-reverse;

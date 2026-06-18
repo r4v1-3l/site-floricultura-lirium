@@ -2,10 +2,43 @@ import "./CardsModal.css";
 
 import { RatingStars } from "./RatingStars";
 
-import { X, Handbag, Heart } from "lucide-react";
+import { X, Handbag, Heart, ChevronLeft, ChevronRight } from "lucide-react";
+
+import { useRef, useState, useEffect } from "react";
 
 export function CardsModal({ flower, onFlowerClick, onColorClick, isFavorite, onFavorite, onAddToCart, onClose}) {
     if (!flower) return null;
+
+    const flowersRef = useRef(null);
+    const colorsRef = useRef(null);
+
+    const [showFlowerArrows, setShowFlowerArrows] = useState(false);
+    const [showColorArrows, setShowColorArrows] = useState(false);
+
+   
+    useEffect(() => {
+    const checkOverflow = () => {
+        if (flowersRef.current) {
+            setShowFlowerArrows(
+                flowersRef.current.scrollWidth > flowersRef.current.clientWidth
+            );
+        }
+
+        if (colorsRef.current) {
+            setShowColorArrows(
+                colorsRef.current.scrollWidth > colorsRef.current.clientWidth
+            );
+        }
+    };
+
+    setTimeout(checkOverflow, 0);
+
+    window.addEventListener("resize", checkOverflow);
+
+    return () => {
+        window.removeEventListener("resize", checkOverflow);
+    };
+    }, [flower]);
 
     const categoryNames = {
         event: "Dia dos Namorados",
@@ -28,7 +61,7 @@ export function CardsModal({ flower, onFlowerClick, onColorClick, isFavorite, on
         Bege: "#D6BFA7",
         Preto: "#111111",
     };
-    
+
     return (
         <div className="modal-overlay" onClick={onClose}>
 
@@ -56,28 +89,56 @@ export function CardsModal({ flower, onFlowerClick, onColorClick, isFavorite, on
 
                         <div className="modal-details">
                             <h6 className="details-title">Flores</h6>
-                                <div className="flowers">
-                                    {flower.flowers.map((flower) => (
-                                        <div key={flower} className="flower-item"  onClick={() => onFlowerClick(flower)}>
-                                            <span>{flower}</span>
-                                        </div>
-                                    ))}
+                                <div className="items-wrapper">
+                                    {showFlowerArrows && (
+                                        <button className="scroll-btn" onClick={() => flowersRef.current.scrollBy({ left: -150, behavior: "smooth" })}>
+                                            <ChevronLeft size={14}/>
+                                        </button>
+                                    )}
+
+                                    <div className="flowers" ref={flowersRef}>
+                                        {flower.flowers.map((flower) => (
+                                            <div key={flower} className="flower-item" onClick={() => onFlowerClick(flower)}>
+                                                <span>{flower}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    {showFlowerArrows && (
+                                        <button className="scroll-btn" onClick={() => flowersRef.current.scrollBy({ left: 150, behavior: "smooth" })}>
+                                            <ChevronRight size={14}/>
+                                        </button>
+                                    )}
                                 </div>
 
                             <h6 className="details-title">Cores</h6>
-                                <div className="colors">
-                                     {flower.colors.map((color) => (
-                                        <div key={color} className="color-item"  onClick={() => onColorClick(color)} style={{backgroundColor: color === "Branco" ? "#ffffff93": `${colorMap[color]}20`}}>
-                                            <span
-                                                className="color-dot"
-                                                style={{
-                                                backgroundColor: colorMap[color] || "#ccc",
-                                                border: color === "Branco" ? "1px solid #ccc" : "none",
-                                                }}
-                                            />
-                                            <span>{color}</span>
-                                        </div>
-                                    ))}
+                                <div className="items-wrapper">
+                                    {showColorArrows && (
+                                        <button className="scroll-btn" onClick={() => colorsRef.current.scrollBy({ left: -150, behavior: "smooth" })}>
+                                            <ChevronLeft size={14}/>
+                                        </button>
+                                    )}
+
+                                    <div className="colors" ref={colorsRef}>
+                                        {flower.colors.map((color) => (
+                                            <div key={color} className="color-item" onClick={() => onColorClick(color)} style={{backgroundColor: color === "Branco" ? "#ffffff93" : `${colorMap[color]}20`}}>
+                                                <span
+                                                    className="color-dot"
+                                                    style={{
+                                                        backgroundColor: colorMap[color] || "#ccc",
+                                                        border: color === "Branco" ? "1px solid #ccc" : "none",
+                                                    }}
+                                                />
+                                                <span>{color}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    {showColorArrows && (
+                                        <button className="scroll-btn" onClick={() => colorsRef.current.scrollBy({ left: 150, behavior: "smooth" })}>
+                                            <ChevronRight size={14}/>
+                                        </button>
+                                    )}
                                 </div>
                         </div>
 

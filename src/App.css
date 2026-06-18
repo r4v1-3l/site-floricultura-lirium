@@ -67,6 +67,45 @@
   width: 100%;
 }
 
+.search-error{
+  font-family: Manrope;
+  max-width: none;
+  white-space: nowrap;
+}
+
+.section-in-between{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  gap: 8px;
+
+  background-color: #F3F3F3;
+  border: 0.0625rem solid rgba(198, 169, 105, 0.6);
+  padding: 40px;
+}
+
+.section-in-between h1{
+  font-weight: 900;
+  font-size: 1.8rem;
+  letter-spacing: 0.2rem;
+}
+
+.section-in-between p{
+  font-family: Manrope;
+  font-weight: 500;
+  font-size: 1.2rem;
+  text-align: justify;
+  letter-spacing: 0.1rem;
+}
+
 .second-section{
     margin-top: 60px;
+}
+
+.second-cards-container{
+   display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  width: 100%;
 }

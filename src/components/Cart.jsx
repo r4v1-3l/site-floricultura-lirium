@@ -1,7 +1,7 @@
 import './Cart.css';
 
 import { CartCards } from './CartCards';
-import { eventFlowersData } from '../data/eventCards';
+import { flowersData } from '../data/defaultCards';
 
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -9,7 +9,7 @@ export function Cart({ cart, price, increaseQuantity, decreaseQuantity, favorite
 
     const cartItems = cart.map(g => {
 
-        const flower = eventFlowersData.find(
+        const flower = flowersData.find(
             f => f.id === g.id
         );
 
@@ -51,46 +51,50 @@ export function Cart({ cart, price, increaseQuantity, decreaseQuantity, favorite
                 <div className="cart-sum">
                     <h1 className="cart-sum-title">Resumo do Pedido</h1>
                 
-                {cartItems.length > 0 && (
-                <div className={`cart-summary-items ${cartItems.length > 0 ? "has-items" : ""}`}>
-                    <AnimatePresence>
-                    {cartItems.map(g => {
+                {cartItems.length > 0 ? (
+                    <div className={`cart-summary-items ${cartItems.length > 0 ? "has-items" : ""}`}>
+                        <AnimatePresence>
+                        {cartItems.map(g => {
 
-                    const itemPrice = Number(
-                        g.price
-                        .replace("R$", "")
-                        .replace(".", "")
-                        .replace(",", ".")
-                        .trim()
-                    );
+                            const itemPrice = Number(
+                            g.price
+                                .replace("R$", "")
+                                .replace(".", "")
+                                .replace(",", ".")
+                                .trim()
+                            );
 
-                    const subtotal = itemPrice * g.quantity;
+                            const subtotal = itemPrice * g.quantity;
 
-                    return (
-                        <motion.div
-                            layout
-                            key={g.id}
-                            className="cart-summary-item"
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 10 }}
-                            transition={{ duration: 0.25 }}
-                        >
-                            <span>{g.title} ({g.quantity}x)</span>
+                            return (
+                            <motion.div
+                                layout
+                                key={g.id}
+                                className="cart-summary-item"
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: 10 }}
+                                transition={{ duration: 0.25 }}
+                            >
+                                <span>{g.title} ({g.quantity}x)</span>
 
-                            <span>
+                                <span>
                                 {subtotal.toLocaleString('pt-BR', {
                                     style: 'currency',
                                     currency: 'BRL'
                                 })}
-                            </span>
-                        </motion.div>
-                    );
-            })}
-            </AnimatePresence>
-            
-            </div>
-            )}
+                                </span>
+                            </motion.div>
+                            );
+                        })}
+                        </AnimatePresence>
+                    </div>
+                    ) : (
+                    <div className="cart-empty">
+                        <h3>Seu carrinho está vazio</h3>
+                        <p>Adicione flores, buquês ou presentes especiais para começar seu pedido.</p>
+                    </div>
+                    )}
 
 
                     <div className="cart-sum-price">

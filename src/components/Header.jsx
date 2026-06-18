@@ -64,7 +64,7 @@ export function Header({ search, setSearch, openSearch, setOpenSearch, activeTab
                     <div className={`nav-item ${activeTab === 'currentEvent' ? 'active' : ''}`} onClick={() => setActiveTab('currentEvent')}>DIA DOS NAMORADOS</div>
                     <div className={`nav-item ${activeTab === 'bouquets' ? 'active' : ''}`} onClick={() => setActiveTab('bouquets')}>ARRANJOS</div>
                     <div className={`nav-item ${activeTab === 'extras' ? 'active' : ''}`} onClick={() => setActiveTab('extras')}>EXTRAS</div>
-                    <div className={`nav-item ${activeTab === 'combos' ? 'active' : ''}`} onClick={() => setActiveTab('combos')}>COMBOS</div>
+                    {/* <div className={`nav-item ${activeTab === 'combos' ? 'active' : ''}`} onClick={() => setActiveTab('combos')}>COMBOS</div> */}
                     <div className={`nav-item ${activeTab === 'aboutUs' ? 'active' : ''}`} onClick={() => setActiveTab('aboutUs')}>SOBRE NÓS</div>
                 </nav>
             </div>

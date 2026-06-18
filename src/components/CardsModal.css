@@ -176,10 +176,24 @@
     font-size: 0.7rem;
 }
 
-.flowers{
+.flowers,
+.colors{
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 12px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    width: 100%;
+    min-width: 0;
+
+    scrollbar-width: none;
+}
+
+.flowers::-webkit-scrollbar,
+.colors::-webkit-scrollbar{
+    display: none;
 }
 
 .flower-item{
@@ -201,13 +215,6 @@
 .flower-item:hover{
     transform: scale(1.02);
     background: #fff !important;
-}
-
-/* CORES */
-.colors{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
 }
 
 .color-item{
